@@ -1,21 +1,21 @@
 import React from 'react';
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Layout = ({ children }) => {
     return (
         <div>
-            <Navbar bg="dark" variant="dark">
-                <Container>
-                    <Navbar.Brand href="/">Finance Dashboard</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="/expense-tracker">Expense Tracker</Nav.Link>
-                        <Nav.Link href="/investment-tracker">Investment Tracker</Nav.Link>
-                    </Nav>
-                </Container>
-            </Navbar>
-            <Container>
+            <nav className="bg-gray-800 text-white p-4">
+                <div className="container mx-auto flex justify-between items-center">
+                    <Link to="/" className="text-xl font-bold">Finance Dashboard</Link>
+                    <div>
+                        <Link to="/expense-tracker" className="ml-4 hover:underline">Expense Tracker</Link>
+                        <Link to="/investment-tracker" className="ml-4 hover:underline">Investment Tracker</Link>
+                    </div>
+                </div>
+            </nav>
+            <div className="container mx-auto mt-4">
                 {children}
-            </Container>
+            </div>
         </div>
     );
 };
